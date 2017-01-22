@@ -31,7 +31,7 @@ func echo1(ch chan<- string) {
 	}
 	secs := time.Since(start).Seconds()
 	fmt.Println(s)
-	ch <- fmt.Sprintf("echo1 -> %.30fs", secs)
+	ch <- fmt.Sprintf("echo1 -> %.30fs\n", secs)
 
 }
 
@@ -45,7 +45,7 @@ func echo2(ch chan<- string) {
 	}
 	fmt.Println(s)
 	secs := time.Since(start).Seconds()
-	ch <- fmt.Sprintf("echo2 -> %.30fs", secs)
+	ch <- fmt.Sprintf("echo2 -> %.30fs\n", secs)
 
 }
 
@@ -53,5 +53,5 @@ func echo3(ch chan<- string) {
 	start := time.Now()
 	fmt.Println(strings.Join(os.Args[1:], " "))
 	secs := time.Since(start).Seconds()
-	ch <- fmt.Sprintf("echo3 -> %.30fs", secs)
+	ch <- fmt.Sprintf("echo3 -> %.30fs\n", secs)
 }
